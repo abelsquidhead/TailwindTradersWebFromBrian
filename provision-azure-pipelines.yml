@@ -12,6 +12,7 @@ variables:
   buildConfiguration: 'Release'
   servicePrincipal: http://AbelDeployDemoPrincipal
   servicePrincipalTenant: 72f988bf-86f1-41af-91ab-2d7cd011db47
+  serviceprincipalsecret: 684ada32-40ed-4ea7-8f20-763fa5dbd5a9
   azureSubscriptionName: AbelDemoSubscription
   resourceGroupName: TailwindTraders-Website-Ignite2019-RG
   location: westus2
