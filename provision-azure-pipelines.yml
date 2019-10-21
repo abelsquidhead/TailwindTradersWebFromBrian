@@ -77,12 +77,6 @@ stages:
             artifact: drop
             patterns: '**/*'
 
-          - task: AzureKeyVault@1
-            inputs:
-              azureSubscription: 'ca-abewan-demo-test (e97f6c4e-c830-479b-81ad-1aff1dd07470)'
-              KeyVaultName: 'abelappservicekeyvault2'
-              SecretsFilter: '*'
-
           - task: PowerShell@2
             inputs:
               filePath: '$(Pipeline.Workspace)/drop/deployWebApp.ps1'
@@ -94,13 +88,5 @@ stages:
               azureSubscription: 'AbelDemoSubscription (07e42f02-499a-4fab-808a-f248bc936f7e)'
               appType: 'webApp'
               WebAppName: '$(stagingAppName)'
-              packageForLinux: '$(Pipeline.Workspace)/drop/**/*.zip'
-
-          - task: AzureRmWebAppDeployment@4
-            inputs:
-              ConnectionType: 'AzureRM'
-              azureSubscription: 'AbelDemoSubscription (07e42f02-499a-4fab-808a-f248bc936f7e)'
-              appType: 'webApp'
-              WebAppName: '$(productionAppName)'
               packageForLinux: '$(Pipeline.Workspace)/drop/**/*.zip'
 
